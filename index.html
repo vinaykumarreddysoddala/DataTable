@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Data Table</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="filterTables.js"></script>
+    <script type="text/javascript" src="showEntries.js"></script>
+    <script type="text/javascript" src="createTable.js"></script>
+    <script type="text/javascript" src="getTableData.js"></script>
+    <script type="text/javascript" src="sortTable.js"></script>
+    <script type="text/javascript" src="pagination.js"></script>
+</head>
+
+<body>
+    <div class="table-container">
+        <div>
+            <div class="table-entries">
+                <div>
+                    <label>Show</label>
+                    <select id="table-entries" onchange="showEntries(event)">
+                        <option value=10>10</option>
+                        <option value=25>25</option>
+                        <option value=50>50</option>
+                        <option value=100>100</option>
+                    </select>
+                    <span>entries</span>
+                </div>
+                <div>
+                    <label>Search:</label>
+                    <input type="text" class="filter-data-input" onkeyup="filterData(event)" placeholder="ALL" />
+                </div>
+            </div>
+            <table id="data-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <button onclick="sortColumn(event,'name')">Country</button>
+                        </th>
+                        <th>
+                            <button onclick="sortColumn(event,'capital')">Capital</button>
+                        </th>
+                        <th>
+                            <button onclick="sortColumn(event,'region')">Region</button>
+                        </th>
+                        <th>
+                            <button onclick="sortColumn(event,'subregion')">Sub Region</button>
+                        </th>
+                        <th>
+                            <button onclick="sortColumn(event,'population')">Population</button>
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>
+                        <input type="text" onkeyup="filterColumn(event,'name')" placeholder="ALL" class="filter-input" />
+                    </td>
+                    <td>
+                        <input type="text" onkeyup="filterColumn(event,'capital')" placeholder="ALL" class="filter-input" />
+                    </td>
+                    <td>
+                        <input type="text" onkeyup="filterColumn(event,'region')" placeholder="ALL" class="filter-input" />
+                    </td>
+                    <td>
+                        <input type="text" onkeyup="filterColumn(event,'subregion')" placeholder="ALL" class="filter-input" />
+                    </td>
+                    <td>
+                        <input type="text" onkeyup="filterColumn(event,'population')" placeholder="ALL" class="filter-input" />
+                    </td>
+                </tr>
+                <tbody id="table-data" class="table-data">
+                </tbody>
+            </table>
+            <div id="pagination-details" class="pagination-details">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
